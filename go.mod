@@ -1,4 +1,4 @@
-module github.com/veraison/swid
+module github.com/CodingVoid/swid
 
 go 1.15
 
