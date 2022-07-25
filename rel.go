@@ -13,6 +13,7 @@ type Rel struct {
 }
 
 /*
+   $rel /= license
    $rel /= compiler
    $rel /= ancestor
    $rel /= component
@@ -26,6 +27,7 @@ type Rel struct {
    $rel /= supersedes
    $rel /= supplemental
    $rel /= int / text
+   license=-2
    compiler=-1
    ancestor=1
    component=2
@@ -42,6 +44,7 @@ type Rel struct {
 
 // Rel constants
 const (
+	RelLicense = int64(-2)
 	RelCompiler = int64(-1)
 	RelAncestor = int64(iota + 1)
 	RelComponent
@@ -59,6 +62,7 @@ const (
 
 var (
 	relToString = map[int64]string{
+		RelLicense:           "license",
 		RelCompiler:          "compiler",
 		RelAncestor:          "ancestor",
 		RelComponent:         "component",
@@ -74,6 +78,7 @@ var (
 	}
 
 	stringToRel = map[string]int64{
+		"license":            RelLicense,
 		"compiler":           RelCompiler,
 		"ancestor":           RelAncestor,
 		"component":          RelComponent,
